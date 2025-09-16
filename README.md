@@ -21,14 +21,19 @@ Small features / tested
 idk if there's more stuff
 
 ## Forge-10.40-GS
+- [ ] not compilable (sadly but oh well)
 - [X] proper looting
 - [X] chest stars
 - [X] vending machine colors
 - [X] teams
-- [X] reboot cards
+- [X] reboot cards (they fr work btw)
 - [X] directional fix + weakspot fix
 - [X] vehicles
-- [X] semi working creative (framework.h)
+- [X] semi working creative (use the bool in: framework.h)
+- [X] working Playground (use the bool in: framework.h)
+- [ ] semi working MCP (i think)
+- [X] Late game
+- [ ] Restarting (very buggy / causes crash issues)
 - [X] some little gameplay features
 - [X] pretty accurate harvesting rate
 - [X] run over ammo & mats
@@ -36,24 +41,68 @@ idk if there's more stuff
 - [X] repairing
 - [X] team map markers
 - [X] killfeed works
+- [ ] Unproper Bots "cheat spawnai" (btw u need to define the: `#define DEVELOPER_BUILD` in framework.h)
+- [X] Very Basic GUI (with working player tab based on in-game players)
+- [X] Inf ammo (hooks.h)
+- [X] Inf mats (hooks.h)
+
+i think thats all :/
+
+## JGS 1.7.2
+
+- [ ] No Building (idk why)
+- [ ] No MCP / skins (they dont work)
+- [X] Proper supply drops
+- [X] Zapotron / Energy cell ammo in loot pool
+- [ ] Very Unproper chests
+- [X] Proper Ammo boxes
+- [ ] Inventory (very bugged)
+- [ ] Missing map parts (SDK issue i think)
+- [X] Cheat commands (proper ig)
+- [X] Teams
+- [X] Duos
+- [X] Same Team definitions
+- [ ] Buggy running (idfk why)
+
+idk if there's more
+
+## JGS 1.8
+
+- [ ] No Building (idk why)
+- [ ] No MCP / skins (they dont work)
+- [X] Proper supply drops
+- [X] Zapotron / Energy cell ammo in loot pool
+- [ ] Very Unproper chests
+- [X] Proper Ammo boxes
+- [ ] Inventory (very bugged)
+- [ ] Missing map parts (SDK issue i think)
+- [X] Cheat commands (proper ig)
+- [X] Teams
+- [X] Duos
+- [X] Same Team definitions
+- [ ] Buggy running (idfk why)
+
+idk if there's more
 
 
+## JGS 2.4.2
 
+- [ ] POI's dont load up (idk why maybe SDK or hook issues)
+- [ ] No Building (idk why)
+- [ ] No MCP / skins (they dont work)
+- [X] Proper supply drops
+- [X] Zapotron / Energy cell ammo in loot pool
+- [ ] Very Unproper chests
+- [X] Proper Ammo boxes
+- [ ] Inventory (very bugged)
+- [ ] Missing map parts (SDK issue i think)
+- [X] Cheat commands (proper ig)
+- [X] Teams
+- [X] Duos
+- [X] Same Team definitions
+- [ ] Buggy running (idfk why)
 
-
-SOON more comming just wait :P
-
-
-
-
-
-
-
-
-
-
-
-
+idk if there's more
 
 
 
