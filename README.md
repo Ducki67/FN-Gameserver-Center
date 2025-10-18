@@ -6,7 +6,7 @@ Collected FN Game Servers from other archives and sources. Open sources, free to
 ***Ill list all features if some of them have features :)***
 Here now you can see SOME GS features as list
 
-[Readme here (2nd branch)](https://github.com/Ducki67/FN-Gameserver-Center/blob/Features/README.md)
+[Readme here (moved to a 2nd md)](https://github.com/Ducki67/FN-Gameserver-Center/blob/main/Features.md)
 
 
 
