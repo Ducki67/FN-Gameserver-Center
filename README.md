@@ -20,5 +20,7 @@ Some lil' info what this repo will be used for / quick notes
 > - **2** I will NOT provide any additional chapters above *C3S4* AKA i won't provide any Chapter 5 or Chapter 4 gameserver source code here ( for good resons and many devs may not want this)
 > - **3** The gameservers that are already listed here are:  **open src**, **known**,  **public / published**
 
-# 🚧 Currently being made / Under some construction 🚧
-## Very soon ill add more info about these + what it tested!
+# Soon tut for Building any of these gs
+thx for 25 stars on this repo, ty yall ❤️
+<!--# 🚧 Currently being made / Under some construction 🚧
+## Very soon ill add more info about these + what it tested! -->
