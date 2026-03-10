@@ -1,55 +1,117 @@
-# Collected-FN-Game-Servers (🚧 Soon update!! )
-Collected FN Game Servers from other archives and sources. Open sources, free to use!
+# Collected-FN-Game-Servers (🚧 Soon update!!)
+Collected FN Game Servers from other archives and sources. Open-source, free to use!
 
+I'll list features in more detail soon — see the Features.md for current notes:
+[Features](https://github.com/Ducki67/FN-Gameserver-Center/blob/main/Features.md)
 
+---
 
-***Ill list all features if some of them have features :)***
-Here now you can see SOME GS features as list
+## Suggesting Game-Servers
+If you'd like to suggest a gameserver:
+- Open a new issue in this repository.
+- Attach the gameserver source (or a link to it) and any notes about version, branch, or build instructions.
+- I may test it and, if appropriate, add it to this collection.
 
-[Readme here (moved to a 2nd md)](https://github.com/Ducki67/FN-Gameserver-Center/blob/main/Features.md)
+---
 
+## Clarification ❗
+A few quick notes about this repo:
+1. This repo is intended to collect publicly available, open-source gameserver source code. It is not for leaking private or proprietary code.
+2. I will NOT provide source code for Chapters beyond C3S4 (no Chapter 4/5 gameserver sources here).
+3. All listed gameservers are open-source, known, and publicly published.
 
+---
 
-## Suggesting Game-Servers 
-Feel free to open a issue ticket and upload the file and ill add it to the list + I might test it
+## Thanks
+Special thanks for 27 stars on this repo — really appreciate the support! ❤️
 
-## Clarification :exclamation: 
-Some lil' info what this repo will be used for / quick notes
+---
 
-> - **1** This repo will NOT be used for leaking anyone's GS or so  this is gonna be used for a Huge GS Folder that contains the GameServer source codes.
-> - **2** I will NOT provide any additional chapters above *C3S4* AKA i won't provide any Chapter 5 or Chapter 4 gameserver source code here ( for good resons and many devs may not want this)
-> - **3** The gameservers that are already listed here are:  **open src**, **known**,  **public / published**
+## Requirements
+- Visual Studio 2022 (or a compatible version; VS2026 if you have it)
+- A gameserver source from the list in this repo
+- Basic knowledge of C++ and debugging/building native projects
+- Windows x64 development tools and SDKs installed
 
-# Text tut
-speciall thx for 27 stars on this repo, ty yall ❤️
+---
 
-**Requirements:**
-  - VS2022 or VS2026 
-  - Any gs source from above
-  - C++ and problem solving knowledge
+## Building the DLL — Step-by-step
 
-**Building the dll**
+Below are clear, repeatable steps for building a gameserver DLL from source.
 
+### 1) Open the project
+- Open the solution (`.sln`) or project (`.vcxproj`) in Visual Studio.
+- In Solution Explorer expand the solution/project to view files and folders.
 
-   **1.** Open the .sln or .vcxproj file of your selected gs in Visualstudio:
+### 2) Update configuration values
+- Look for configuration files such as:
+  - `Config.h`, `Configuration.h`, `Globals.h`
+  - `Settings.h`, `Options.h`
+  - Files named `*.config`, `*.ini`, or any `namespace Globals|Config|Configuration`
+- If you don't immediately see a config file, use Visual Studio's search (Ctrl+F) and search for:
+  - `Globals`, `Configuration`, `Config`, or class/struct names like `struct Config`
+- Update the necessary values (paths, ports, hostnames, build flags, etc.) so the project builds and links on your machine.
 
-   Then after that on the side u should drop down the Solution/Project to see all folders and files.
-   
-   **2.** Change the gameserver configs:
-   
-   These are usually in files like `Config.h`, `Configuration.h`, `Globals.h` etc.
-   
-   If you dont find any file that is dedicated for configs then do  **`Ctrl+f`** and search up namespace names like *Globals*, *Configuration*, *Config(s)* Or even Class and Struct names like *struct FCofiguration* stuff like that.
+Example search tips:
+```
+Ctrl+F → search for: Globals
+Solution-wide search (Ctrl+Shift+F) → names: Configuration, Config, Globals
+```
 
+### 3) Set build configuration and platform
+- At the top of Visual Studio:
+  - Set the Configuration to `Release` (or `Debug` while testing).
+  - Set the Platform to `x64`.
+  - Some projects may provide a `Client` configuration — pick the one appropriate for the DLL you want to build.
 
-   **3.** Compiling the dll:
+### 4) Build in Visual Studio (GUI)
+- Build → Build Solution, or press `Ctrl+Shift+B`.
+- Watch the Output window for errors and warnings.
 
-   At the very top of visualstudio set the *Debug* to *Release* Or **Client** (depending which yoz wanna build / if the gs has its own Client) and make sure its on **X64**.
+### 5) (Optional) Build from the command line
+If you prefer a CLI build (useful for automation or CI):
+- Open "Developer Command Prompt for VS".
+- Run:
+```
+msbuild path\to\YourSolution.sln /p:Configuration=Release /p:Platform=x64
+```
+- Or use `devenv`:
+```
+devenv path\to\YourSolution.sln /Build "Release|x64"
+```
 
-   After that do `Ctrl+Shift+B` to build it.
+### 6) Locate the built DLL
+- Typical output folder:
+```
+<project_folder>\x64\Release\YourGameserver.dll
+```
+- Some projects use `bin\Release`, `output\Release`, or other custom folders — check the project's `Output Directory` setting in Project Properties → General.
 
-   And once its done check the folder: **/x64/Release/ExampleGs.dll** and there you go.
+---
 
+## Post-build: quick checks
+- Confirm the DLL file exists in the expected output folder.
+- If the project requires additional runtime files (config, data files, third-party DLLs), copy them alongside your built DLL.
+- If you need to test hooking or injecting the DLL into a client, ensure you follow the client's rules and legal/ethical guidelines.
 
+---
 
-<!--# 🚧 Currently being made / Under some construction 🚧 Very soon ill add more info about these + what it tested! -->
+## Troubleshooting — common issues
+- Missing includes or headers:
+  - Ensure Windows SDK and necessary third-party SDKs/libraries are installed and their include/lib paths are configured in Project Properties.
+- Linker errors (unresolved externals):
+  - Verify required .lib files are linked and the correct calling conventions/macros are used.
+- CRT mismatch or runtime errors:
+  - Make sure runtime library settings match across projects (Project Properties → C/C++ → Code Generation → Runtime Library).
+- 32-bit vs 64-bit:
+  - Building for `x86` when you need `x64` (or vice versa) will cause runtime failures — confirm platform.
+- If build fails with many errors, try `Clean Solution` then `Rebuild Solution`.
+
+If you hit a specific error, open an issue with the build log or paste the relevant error messages — I can help diagnose further.
+
+---
+
+## Tips
+- Keep a copy of the original project settings before making large changes.
+- Use a virtual machine or isolated environment if you're testing code that interacts with game clients.
+- Document any manual changes you make to a game's configuration so they can be reproduced.
