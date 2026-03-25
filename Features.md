@@ -21,9 +21,6 @@ Small features / tested
 idk if there's more stuff
 
 
-
-more very soon
-
 ## Forge-10.40-GS
 - [ ] not compilable (sadly but oh well)
 - [X] proper looting
@@ -108,6 +105,10 @@ idk if there's more
 
 idk if there's more
 
+
+
+
+very soon ill list here 17.30 gs one and others maybe
 
 
 
